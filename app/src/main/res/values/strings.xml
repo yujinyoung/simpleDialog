@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SimpleDialog</string>
     <string name="but_text">대화상자</string>
+
 </resources>
