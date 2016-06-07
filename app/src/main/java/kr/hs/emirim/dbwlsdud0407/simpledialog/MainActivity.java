@@ -10,12 +10,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    Button but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button but=(Button)findViewById(R.id.but_dialog);
+        but=(Button)findViewById(R.id.but_dialog);
         but.setOnClickListener(this);
     }
 
@@ -24,11 +24,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      *
      * @param v The view that was clicked.
      */
+    String[] items={"젤리빈", "킷켓","롤리팝"};
     @Override
     public void onClick(View v) {
+
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("First Dialog");
-        dialog.setMessage("this is message part.");
+        dialog.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                but.setText(items[which]);
+            }
+        });
         dialog.setIcon(R.drawable.images);
         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
