@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button but;
+    boolean checkArr[]={false,true};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("First Dialog");
-        dialog.setItems(items, new DialogInterface.OnClickListener() {
+        dialog.setSingleChoiceItems(items,0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 but.setText(items[which]);
+
             }
         });
         dialog.setIcon(R.drawable.images);
